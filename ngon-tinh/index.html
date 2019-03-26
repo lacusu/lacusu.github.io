@@ -34,7 +34,7 @@
         <div id="wrap">
             <div id="text">
                 <div id="code">
-                    <font color="#0000FF"><span class="say">Hi Trúc <3</span><br>
+                    <font color="#0000FF"><span class="say">Hi Thuần <3</span><br>
                         <span class="say"> </span><br>
                         <span class="say">Em là người con gái anh thương nhất :)</span><br>
                         <span class="say">Em thật đáng yêu!</span><br>
@@ -42,7 +42,7 @@
                         <span class="say">..."Có em, anh sẽ chẳng cần điều gì khác em"</span><br>
                         <span class="say">Hãy cứ tin em nhé...</span><br>
                         <span class="say"> </span><br>
-                        <span class="say"><span class="space"></span> -- Thương, moahz moahz :*</span>
+                        <span class="say"><span class="space"></span> -- Thương, moahz moahz ngại gì không nói! :* Tiến Trần</span>
                     </font>
                     </p>
                 </div>
@@ -52,9 +52,11 @@
                 <font color="#FF0000">Anh
                     <3 Em</font>
                         <span class="STYLE1"> Start time: 25/01/2017. We've spent:</span>
-                        <div id="clock"></div>
+                        <div id="clock" class="clock"></div>
+                        <span class="STYLE1"> End time: 25/01/2020. We've left over:</span>
+                        <div id="clockcountdown" class="clock"></div>
             </div>
-            <canvas id="canvas" width="1100" height="680"></canvas>
+            <canvas id="canvas" width="1100" height="800"></canvas>
         </div>
 
     </div>
@@ -202,6 +204,7 @@
                 $("#clock-box").fadeIn(500);
                 while (true) {
                     timeElapse(together);
+                    counDown();
                     $await(Jscex.Async.sleep(1000));
                 }
             }));
