@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <title>Vo Duc Huy - Lacusu</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Huy's CV">
+    <meta name="author" content="Lacusu">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link
+        href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles-5.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/lacusu.css">
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+        crossorigin="anonymous"></script>
+    <script>
+
+        function exportHTML2PDFCanvas() {
+            // $("#exportButton").click(function () {
+            html2canvas(document.querySelector("#content"), {
+                scale: 1
+            }).then(canvas => {
+                var dataURL = canvas.toDataURL();
+                var pdf = new jsPDF();
+                pdf.addImage(dataURL, 'JPEG', 0, 0, 170, 150, "cv", "SLOW", 0); //addImage(image, format, x-coordinate, y-coordinate, width, height)
+                pdf.save("CanvasJS Charts.pdf");
+                // pdf.output("dataurlnewwindow");
+                // pdf.addImage(dataURL, {
+                //     callback: function (pdf) {
+                //         pdf.save();
+                //         // var iframe = document.createElement('iframe');
+                //         // iframe.setAttribute('style', 'position:absolute;right:0; top:0; bottom:0; height:100%; width:500px');
+                //         // document.body.appendChild(iframe);
+                //         // iframe.src = pdf.output('datauristring');
+
+                //         //var div = document.createElement('pre');
+                //         //div.innerText=pdf.output();
+                //         //document.body.appendChild(div);
+                //         pdf.output("dataurlnewwindow");
+                //     }
+                // });
+            });
+            // });
+        }
+        function exportHTML2PDF() {
+            var pdf = new jsPDF('p', 'pt', 'letter');
+            // var pdf = new jsPDF();
+            pdf.html(document.getElementById('content'), {
+                callback: function (pdf) {
+                    pdf.save();
+                    // var iframe = document.createElement('iframe');
+                    // iframe.setAttribute('style', 'position:absolute;right:0; top:0; bottom:0; height:100%; width:500px');
+                    // document.body.appendChild(iframe);
+                    // iframe.src = pdf.output('datauristring');
+
+                    //var div = document.createElement('pre');
+                    //div.innerText=pdf.output();
+                    //document.body.appendChild(div);
+                    pdf.output("dataurlnewwindow");
+                }
+            });
+        }
+        function exportPDF() {
+            var doc = new jsPDF();
+            var elementHandler = {
+                '#ignorePDF': function (element, renderer) {
+                    return true;
+                }
+            };
+            var source = window.document.getElementsByTagName("body")[0];
+            doc.fromHTML(
+                $('#content'),
+                15,
+                15,
+                {
+                    'width': 180, 'elementHandlers': elementHandler
+                });
+            doc.html(document.body, {
+                callback: function (doc) {
+                    doc.save();
+                }
+            });
+
+            doc.output("dataurlnewwindow");
+        }
+    </script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <p id="ignorePDF">don't print this to pdf</p>
+    <button type="button" onclick="exportHTML2PDFCanvas()">Click Me!</button>
+    <div id="content">
+        <div class="wrapper">
+            <div class="sidebar-wrapper">
+                <div class="profile-container">
+                    <img class="profile" style="border-radius: 50%" src="assets/images/profile.jpg" width="60%"
+                        height="60%" alt="huy's Profile" />
+                    <h1 class="name"> Huy Vo Duc</h1>
+                    <!-- <h2 class="second-name"> (Võ Đức Huy)</h2> -->
+                    <h3 class="tagline">Software Developer</h3>
+                </div>
+                <!--//profile-container-->
+
+                <div class="contact-container container-block">
+                    <ul class="list-unstyled contact-list">
+                        <li class="email"><i class="fa fa-envelope"></i><a
+                                href="mailto:voduchuyhcm@gmail.com">voduchuyhcm@gmail.com</a></li>
+                        <li class="linkedin"><i class="fa fa-linkedin"></i><a
+                                href="https://www.linkedin.com/in/voduchuyhcm" target="_blank">/voduchuyhcm</a></li>
+                        <li class="phone"><i class="fa fa-phone"></i><a href="tel:+84914405078">+84 914 405 078</a></li>
+                        <li class="website"><i class="fa fa-globe"></i><a href="https://lacusu.github.io"
+                                target="_blank">lacusu.github.io</a></li>
+                        <!-- <li class="github"><i class="fa fa-github"></i><a href="https://github.com/lacusu" target="_blank">github.com/lacusu</a></li> -->
+                    </ul>
+                </div>
+                <!--//contact-container-->
+                <div class="education-container container-block">
+                    <h2 class="container-block-title">Education</h2>
+                    <div class="item">
+                        <h4 class="degree">BEc in Management Information System</h4>
+                        <h5 class="meta"><a href="https://www.uel.edu.vn" target="_blank">University of Economics and
+                                Law</a></h5>
+                        <div class="time">2014</div>
+                    </div>
+                </div>
+                <!--//education-container-->
+
+                <div class="languages-container container-block">
+                    <h2 class="container-block-title">Languages</h2>
+                    <ul class="list-unstyled interests-list">
+                        <li>Vietnamese <span class="lang-desc">(Native)</span></li>
+                        <li>English <span class="lang-desc"> - ILA Business English certificate - Intermediate A
+                                - 2017</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--//interests-->
+
+                <div class="interests-container container-block">
+                    <h2 class="container-block-title">Interests</h2>
+                    <ul class="list-unstyled interests-list">
+                        <li>Travelling</li>
+                        <li>Keeping up with the latest developments in technology</li>
+                    </ul>
+                </div>
+                <!--//interests-->
+
+            </div>
+            <!--//sidebar-wrapper-->
+
+            <div class="main-wrapper">
+
+                <section class="section summary-section">
+                    <h2 class="section-title"><i class="fa fa-user"></i>Objective</h2>
+                    <div class="summary">
+                        <p>
+                            Looking for a opportinity at a software product company, where I can utilize my
+                            five years of development experiences for the growth of the organization as well as to
+                            enhance
+                            my knowledge about new requirements and trends.
+                        </p>
+                    </div>
+                    <!--//summary-->
+                </section>
+                <!--//section-->
+
+                <section class="section experiences-section">
+                    <h2 class="section-title"><span class="icon-holder"><i
+                                class="fa fa-briefcase"></i></span>Experiences
+                    </h2>
+
+                    <div class="item">
+                        <div class="meta">
+                            <div class="upper-row">
+                                <h3 class="job-title">Full-Stack Developer</h3>
+                                <div class="time">2016 - present</div>
+                            </div>
+                            <!--//upper-row-->
+                            <div class="company">SAP LABS VIETNAM, Ho Chi Minh City</div>
+                        </div>
+                        <!--//meta-->
+                        <div class="details">
+                            <p>HANA Cockpit 2.0 - HANA Performance Tooling team </p>
+                            <ul class="">
+                                <li>Nominated to Catalysts experiences by manager. The program to recognize and
+                                    appreciate contribution</li>
+                                <li>Taking a role as Code reviewer who make sure that there is no side-effect to
+                                    existing
+                                    features</li>
+                                <li>Being familar with project management tools like JIRA, Bugzilla, BCP system, etc.
+                                </li>
+                                <li>Has built trust relationship with foreign colleagues in South Korea, Canada, Germany
+                                    and
+                                    China.</li>
+                                <li>Applied The UMD (Universal Module Definition) pattern successfully to solve
+                                    duplicate codes in multiple
+                                    frameworks.
+                                </li>
+                                <li>Analyzed requirements and implemented enhancement features to enhance product
+                                    functionality.</li>
+                                <li>Consulted regularly with stakeholders on project status, proposals and technical
+                                    issues.
+                                </li>
+                                <li>Designed two main microservices in the product which be able to integrate with
+                                    multiple
+                                    services.
+                                </li>
+                                <li>Built skeleton of a microservice based on what learned from previous product.</li>
+
+
+
+                            </ul>
+                            </ul>
+                        </div>
+                        <!--//details-->
+                    </div>
+
+                    <div class="item">
+                        <div class="meta">
+                            <div class="upper-row">
+                                <h3 class="job-title">Full-Stack Developer</h3>
+                                <div class="time">2014 - 2016</div>
+                            </div>
+                            <!--//upper-row-->
+                            <div class="company">SAP LABS VIETNAM, Ho Chi Minh City</div>
+                        </div>
+                        <!--//meta-->
+                        <div class="details">
+                            <p>HANA Tooling team</p>
+                            <ul class="">
+                                <li>Built trust relationship with development team leader whom was willing to discuss
+                                    major technical issues</li>
+                                <li>Successfully ported existing product to cloud based architecture</li>
+                                <li>Solved customer issues by debugging and providing defect fixes</li>
+                                <li>Modifined existing feature to correct errors, upgrade interfaces and improve
+                                    peformance
+                                </li>
+                                <li>Wrote maintainable and extensible code in the team enviroiment</li>
+                            </ul>
+                        </div>
+                        <!--//details-->
+                    </div>
+
+                </section>
+                <!--//section-->
+
+                <section class="section projects-section">
+                    <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
+                    <!--//intro-->
+                    <div class="item">
+                        <span class="project-title"><a
+                                href="https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/1.0.12/en-US/76792cf695f2447497ad2c3cb42ab7b1.html"
+                                target="_blank">HANA
+                                Runtime tools</a></span> -
+                        <span class="project-tagline">The Web-based SAP HANA run-time tools contain features and
+                            functions
+                            required by both developers and administrators.
+                            The tool can be used to work with the artifacts of SAP HANA DATABASE like table, view,
+                            procedure, function, etc.
+                        </span>
+                    </div>
+                    <div class="item">
+                        <span class="project-title">
+                            <a href="https://help.sap.com/viewer/afa922439b204e9caf22c78b6b69e4f2/2.6.0.0/en-US/1458a4079b294a58a57eca5823025108.html"
+                                target="_blank">
+                                SQL Analyzer 2.0
+                            </a>
+                        </span> - <span class="project-tagline">A web-based query performance analysis tool of SAP HANA.
+                            The tool can be used to view detailed information on each query and can help you evaluate
+                            potential bottlenecks and optimizations for these queries.</span>
+                    </div>
+                    <div class="item">
+                        <span class="project-title">
+                            <a>
+                                Recommendations
+                            </a>
+                        </span> - <span class="project-tagline"> A advisory tool is used for suggestions for database
+                            performance and operation improvements.
+                            The tool offer rule-based advice on database performance improvement and show the next steps
+                            on how to implement the suggested changes.
+                        </span>
+                    </div>
+                </section>
+                <!-- 
+            <section class="section achievements-section">
+                <h2 class="section-title">
+                    <i class="fa fa-trophy"></i>Achievements</h2>
+                <div class="item">
+                    <div class="upper-row">
+                        <span class="title">Update soon</span>
+                        <div class="time">xxxx</div>
+                    </div>
+                    <div class="company">update soon</div>
+                </div>
+            </section> -->
+
+
+                <section class="skills-section section">
+                    <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+                    <div class="skillset">
+                        <div class="item">
+                            <span>Having a good experiences on Entersprise Product Software which kind of product has
+                                been managed by strictly process and requirement.
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                Problem solving kill is the most important skill which I have beeing comprehended. The
+                                skill is not only learned what solve a problem but also how people find out root cuase
+                                then solving it.
+
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                Continuous learning is one of ways to my self-motivated persistence in acquiring
+                                knowledge.
+                                Additionally, this is a good approach to expand my kill set to develop future
+                                oppotinuties
+
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span class="skill-title">
+                                Programming languages:
+                            </span>Javascript and Java
+                        </div>
+                        <div class="item">
+                            <span class="skill-title">
+                                Frameworks and libraries:
+                            </span>jQuery, Nodejs, ReactJS, SAPUI5 and Wordpress
+                        </div>
+                        <div class="item">
+                            <span class="skill-title">
+                                Other tools and technologies:
+                            </span>CI/CD, Microservice, Cloud deployment, HANA system, SQL Server, MySQL, Restful API,
+                            GitHub, Gerrit, GitLab, Bugzilla, JIRA, BCP system,
+                            Jenskin and Drools rule engine
+                        </div>
+
+
+                        <!-- <div class="item">
+                            <h3 class="level-title">Javascript &amp; jQuery</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="70%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <h3 class="level-title">NodeJS</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="65%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <h3 class="level-title">SAP UI5</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="70%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <h3 class="level-title">HTML5 &amp; CSS</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="50%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <h3 class="level-title">ReactJS (learning)</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="10%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <h3 class="level-title">Java</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="10%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <h3 class="level-title">C#</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="10%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <h3 class="level-title">git</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="50%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <h3 class="level-title">Cloud Foundry</h3>
+                            <div class="level-bar">
+                                <div class="level-bar-inner" data-level="50%">
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </section>
+            </div>
+            <!--//main-body-->
+        </div>
+
+        <footer class="footer">
+            <div class="text-center">
+                <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Latest by Huy Vo | April, 2019</small>
+            </div>
+            <!--//container-->
+        </footer>
+        <!--//footer-->
+
+        <!-- Javascript -->
+        <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- custom js -->
+        <script type="text/javascript" src="assets/js/main.js"></script>
+    </div>
+</body>
+
+</html>
